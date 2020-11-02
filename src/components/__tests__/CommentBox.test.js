@@ -21,11 +21,25 @@ it('has a text area and a button', () => {
   expect(wrapper.find('button').length).toEqual(1);
 });
 
-it('has a text area that users can type in', () => {
-  wrapper.find('textarea').simulate('change', {
-    target: { value: 'new comment' }
+describe('the text area', () => {
+  beforeEach(() => {
+    wrapper.find('textarea').simulate('change', {
+      target: { value: 'new comment' }
+    });
+    wrapper.update();
+  })
+
+  it('has a text area that users can type in', () => {
+    expect(wrapper.find('textarea').prop('value'))
+      .toEqual('new comment');
   });
-  wrapper.update();
-  expect(wrapper.find('textarea').prop('value'))
-    .toEqual('new comment');
+
+  it('has an empty textarea after the input is submitted', () => {
+    // submit the form
+    wrapper.find('form').simulate('submit');
+    wrapper.update();  //force component to update
+    expect(wrapper.find('textarea').prop('value'))
+      .toEqual('');
+  });
 });
+
