@@ -4,7 +4,7 @@ class CommentBox extends React.Component {
   render() {
     return (
       <div>
-        COMMENT BOX
+        Comment Box
       </div>
     )
   }
