@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount } from '@wojtekmaj/enzyme-adapter-react-17';
 import CommentBox from 'components/CommentBox';
 import Root from 'Root';
 

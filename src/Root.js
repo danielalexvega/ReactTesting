@@ -4,10 +4,10 @@ import { createStore } from 'redux';
 import reducers from 'reducers';
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default props => {
+export default ({ children, initialState = []}) => {
   return (
-    <Provider store={createStore(reducers, {})}>
-      {props.children}
+    <Provider store={createStore(reducers, initialState)}>
+      {children}
     </Provider>
   );
 };
